@@ -21,9 +21,7 @@ jobs:
         run: |
           black .
           git config --global user.name github-actions
-          git config pull.rebase false
-          git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'          
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git pull origin HEAD:$GITHUB_REF
+          git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git commit -am "Format Python code with black push"
           git push
