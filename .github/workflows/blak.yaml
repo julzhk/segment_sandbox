@@ -25,4 +25,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git checkout ${{ github.branch }}
           git commit -am "Format Python code with black push"
-          git push
+          git push origin HEAD:${{ github.branch }}
