@@ -2,9 +2,13 @@
 # If all Python code in the repo is compliant with Black then this Action does nothing.
 # Otherwise, Black is run and its changes are committed to the repo.
 # https://github.com/cclauss/autoblack
-
 name: autoblack_push
-on: [push]
+on:
+  pull_request:
+    branches:
+      - '*'
+      - '!development'
+      - '!master'
 jobs:
   build:
     runs-on: ubuntu-latest
